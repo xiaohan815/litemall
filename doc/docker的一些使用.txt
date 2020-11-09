@@ -1,0 +1,17 @@
+ docker build -t litemall-all .
+ docker run -d -p 8029:8080  --name litemall-all  litemall-all
+ 
+  docker build -t litemall-admin .
+  
+  docker save litemall-admin > litemall-admin.tar.gz
+  docker load < litemall-admin.tar.gz
+  
+  docker run -d -p 8027:80  --name litemall-admin  litemall-admin
+  
+  
+    docker build -t litemall-vue .
+	
+	docker save litemall-vue > litemall-vue.tar.gz
+	docker load < litemall-vue.tar.gz
+  
+  docker run -d -p 8028:80  --name litemall-vue  litemall-vue

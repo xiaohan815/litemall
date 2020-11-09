@@ -1,0 +1,19 @@
+version: '3'
+services:
+  litemall-all:
+    build:
+      context: litemall-all
+      dockerfile: Dockerfile
+    container_name: litemall-all
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./litemall/storage:/storage
+      - ./litemall/logs:/logs
+      - ./litemall/backup:/backup
+      - /etc/localtime:/etc/localtime
+    environment:
+      - TZ=Asia/Shanghai
+    depends_on:
+      - mysql57
+    restart: always
